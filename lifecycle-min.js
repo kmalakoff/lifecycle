@@ -1,0 +1,9 @@
+// Lifecycle.js 1.0.0
+// (c) 2011 Kevin Malakoff.
+// Lifecycle is freely distributable under the MIT license.
+// https://github.com/kmalakoff/Lifecycle
+//
+(function(){this.Lifecyle||(this.Lifecyle={});this.LC=this.Lifecyle;LC.VERSION="1.0.0";LC.own=function(a,c){if(!a||typeof a!="object")return a;c||(c={});if(a.constructor==Array){var b,d=a.length;if(c.share_collection)for(b=0;b<d;b++)LC.own(a[b],{prefer_clone:c.prefer_clone});else{var e=[];for(b=0;b<d;b++)e.push(LC.own(a[b],{prefer_clone:c.prefer_clone}));return e}}else if(c.properties)if(c.share_collection)for(key in a)LC.own(a[key],{prefer_clone:c.prefer_clone});else{b={};for(key in a)b[key]=LC.own(a[key],
+{prefer_clone:c.prefer_clone});return b}else if(a.retain)if(c.prefer_clone&&a.clone)return a.clone();else a.retain();else if(a.clone)return a.clone();return a};LC.disown=function(a,c){if(!a||typeof a!="object")return a;c||(c={});if(a.constructor==Array){var b,d=a.length;if(c.clear_values)for(b=0;b<d;b++)LC.disown(a[b],{clear_values:c.clear_values}),a[b]=null;else{for(b=0;b<d;b++)LC.disown(a[b],{remove_values:c.remove_values});if(c.remove_values)a.length=0}}else if(c.properties)if(c.clear_values)for(b in a)LC.disown(a[b],
+{clear_values:c.clear_values}),a[b]=null;else{for(b in a)LC.disown(a[b],{remove_values:c.remove_values});if(c.remove_values)for(b in a)delete a[b]}else a.release?a.release():a.destroy&&a.destroy();return a};LC.RefCountable=function(){function a(){this.ref_count=1}a.prototype.retain=function(){if(this.ref_count<=0)throw Error("LC.RefCounting: ref_count is corrupt: "+this.ref_count);this.ref_count++;return this};a.prototype.release=function(){if(this.ref_count<=0)throw Error("LC.RefCounting: ref_count is corrupt: "+
+this.ref_count);this.ref_count--;this.ref_count===0&&this._destroy&&this._destroy.call(this);return this};a.prototype.refCount=function(){return this.ref_count};return a}()})();
