@@ -20,14 +20,14 @@ end
 
 desc "Use the Closure Compiler to compress Lifecycle.js"
 task :build do
-  minimize_with_header('lifecycle.js', 'lifecycle-min.js')
+  minimize_with_header('lifecycle.js', 'lifecycle.min.js')
 end
 
 desc "check, build and generate documentation"
 task :package do
   begin
     system "jsl -nofilelisting -nologo -conf docs/jsl.conf -process lifecycle.js"
-    minimize_with_header('lifecycle.js', 'lifecycle-min.js')
+    minimize_with_header('lifecycle.js', 'lifecycle.min.js')
     check 'docco', 'docco', 'https://github.com/jashkenas/docco'
     sh "docco lifecycle.js"
   end
