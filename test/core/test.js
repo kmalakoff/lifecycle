@@ -1,3 +1,5 @@
+var root = this;
+
 var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
   for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
   function ctor() { this.constructor = child; }
@@ -30,10 +32,18 @@ var clone = function(obj) {
   }
 }
 
-var root = this;
-
+//////////////////////////////
+// Start Tests
+//////////////////////////////
 $(document).ready(function() {
   module("Lifecycle.js");
+
+  // import Lifecycle
+  var LC = !window.LC && (typeof require !== 'undefined') ? require('lifecycle') : window.LC;
+
+  test("TEST DEPENDENCY MISSING", function() {
+    ok(!!LC);
+  });
 
   test('collections: own and disown', function() {
     var original, original_again, copy;
@@ -91,8 +101,8 @@ $(document).ready(function() {
     RetainRelease = (function() {
       RetainRelease.instance_count = 0;
       function RetainRelease() { this.retain_count=1; RetainRelease.instance_count++ }
-      RetainRelease.prototype.retain = function() { this.retain_count++; };
-      RetainRelease.prototype.release = function() { this.retain_count--; if (this.retain_count==0) RetainRelease.instance_count--; };
+      RetainRelease.prototype.retain = function() { this.retain_count++; return this; };
+      RetainRelease.prototype.release = function() { this.retain_count--; if (this.retain_count==0) RetainRelease.instance_count--; return this; };
       return RetainRelease;
     })();
 
@@ -159,8 +169,8 @@ $(document).ready(function() {
       RetainReleaseWithClone.instance_count = 0;
       function RetainReleaseWithClone() { this.retain_count=1; RetainReleaseWithClone.instance_count++; }
       RetainReleaseWithClone.prototype.clone = function() { return new RetainReleaseWithClone(); };
-      RetainReleaseWithClone.prototype.retain = function() { this.retain_count++; };
-      RetainReleaseWithClone.prototype.release = function() { this.retain_count--; if (this.retain_count==0) RetainReleaseWithClone.instance_count--; };
+      RetainReleaseWithClone.prototype.retain = function() { this.retain_count++; return this; };
+      RetainReleaseWithClone.prototype.release = function() { this.retain_count--; if (this.retain_count==0) RetainReleaseWithClone.instance_count--; return this; };
       return RetainReleaseWithClone;
     })();
 
@@ -190,19 +200,17 @@ $(document).ready(function() {
     equal(original.retain_count, 0, 'rrc: 0 retains');
   });
 
-  test('collections: own and disown', function() {
+  test('ref countable (javascript)', function() {
 
-    MyClass = (function() {
-      __extends(MyClass, LC.RefCountable);
-      function MyClass() {
-        MyClass.__super__.constructor.apply(this, arguments);
+    var MyClass = LC.RefCountable.extend({
+      constructor: function() {
+        LC.RefCountable.prototype.constructor.apply(this, arguments);
         this.is_alive = true;
-      }
-      MyClass.prototype._destroy = function() {
+      },
+      __destroy: function() {
         this.is_alive = false;
-      };
-      return MyClass;
-    })();
+      }
+    });
 
     var instance = new MyClass();
     equal(instance.is_alive, true, 'is alive');
@@ -231,7 +239,7 @@ $(document).ready(function() {
     equal(instance.refCount(), 0, '0 references');
     equal(instance.is_alive, false, 'is gone');
 
-    raises(function(){instance.release()}, Error, 'LC.RefCounting: ref_count is corrupt');
+    raises(function(){instance.release()}, null, 'LC.RefCounting: ref_count is corrupt');
     equal(instance.is_alive, false, 'is gone');
   });
 });

@@ -54,16 +54,66 @@ Very basic implementation following the Coffeescript class pattern for a referen
 
 ### Examples:
 
+CoffeeScript classes:
+
 ```coffeescript
 class MyClass extends LC.RefCountable
   constructor: ->
     super
     @is_alive = true
-  _destroy: ->
+  __destroy: ->
     @is_alive = false
 
 instance = new MyClass()  # ref_count = 1
 instance.retain()         # ref_count = 2
 instance.release()        # ref_count = 1
-instance.release()        # ref_count = 0 and _destroy() called
+instance.release()        # ref_count = 0 and __destroy() called
 ```
+
+JavaScript classes using extend:
+
+```javascript
+var MyClass = LC.RefCountable.extend({
+  constructor: function() {
+    LC.RefCountable.prototype.constructor.apply(this, arguments);
+    this.is_alive = true;
+  },
+  __destroy: function() {
+    this.is_alive = false;
+  }
+});
+
+var instance = new MyClass();   // ref_count = 1
+instance.retain();              // ref_count = 2
+instance.release();             // ref_count = 1
+instance.release();             // ref_count = 0 and __destroy() called
+```
+
+# Release Notes
+
+###1.0.1
+
+- converted back to CoffeeScript
+
+- build using easy-bake
+
+- added packaging tests
+
+- added extend() functionality for JavaScript and CoffeeScript class usability
+
+- changed convention from _destroy() to __destroy() given that some libraries (like KnockoutJS) use _destroy for other purposes
+
+- removed Lifecycle alias
+
+
+Building, Running and Testing the library
+-----------------------
+
+###Installing:
+
+1. install node.js: http://nodejs.org
+2. install node packages: 'npm install'
+
+###Commands:
+
+Look at: https://github.com/kmalakoff/easy-bake
