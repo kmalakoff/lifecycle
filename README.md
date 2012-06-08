@@ -26,6 +26,7 @@ Manages the lifecycle of individual instances, objects, arrays, and object prope
 ### Examples:
 
 Run time determination of the correct lifecycle for an instance:
+
 ```coffeescript
 instance = new MyClass()
 owned_copy_instance = LC.own(instance)       # you don't need to know whether MyClass needs to get cloned, retained, etc
@@ -47,7 +48,7 @@ an_object = {one: new Object(), two: new Object(), three: ‘there’}
 owned_copy_object = LC.own(an_object, {properties:true})
 ...
 LC.disown(an_object);
-...
+```
 
 ## LC.RefCountable
 Very basic implementation following the Coffeescript class pattern for a reference countable class.
