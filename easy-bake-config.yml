@@ -3,6 +3,11 @@ library:
   compress: true
   files:
     - src/**/*.coffee
+  modes:
+    build:
+      commands:
+        - 'cp lifecycle.js packages/npm/lifecycle.js'
+        - 'cp lifecycle.min.js packages/npm/lifecycle.min.js'
 
 tests:
   output: build
