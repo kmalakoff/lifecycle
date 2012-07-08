@@ -6,16 +6,11 @@ You can get the library here:
 * [Development version][1]
 * [Production version][2]
 
-[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.js
-[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.min.js
-
 Introduction
 ------------
 If you need to write code that manages the lifecycle of some javascript objects, but you don't know ahead of time what type of lifecycle model they implement, Lifecycle.js is for you!
 
-A good example of this is [Backbone.Articulation][0]. Backbone.Articulation will reconstruct instances of Dates or custom classes within you Backbone.Model's attributes irregardless of what lifecycle model they use (as long as they use one of the known conventions!)
-
-[0]: https://github.com/kmalakoff/backbone-articulation
+A good example of this is [Backbone.Articulation][3]. Backbone.Articulation will reconstruct instances of Dates or custom classes within you Backbone.Model's attributes irregardless of what lifecycle model they use (as long as they use one of the known conventions!)
 
 # LC.own and LC.disown
 Manages the lifecycle of individual instances, objects, arrays, and object properties that comply with some lifecycle conventions:
@@ -120,3 +115,8 @@ Building, Running and Testing the library
 ###Commands:
 
 Look at: https://github.com/kmalakoff/easy-bake
+
+[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.js
+[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.min.js
+[3]: https://github.com/kmalakoff/backbone-articulation
+
