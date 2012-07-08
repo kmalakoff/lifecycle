@@ -1,11 +1,13 @@
-````
 Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.
-````
+
 
 You can get the library here:
 
-* Development version: https://github.com/kmalakoff/lifecycle/raw/master/lifecycle.js
-* Production version: https://github.com/kmalakoff/lifecycle/raw/master/lifecycle.min.js
+* [Development version][1]
+* [Production version][2]
+
+[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.js
+[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.min.js
 
 Introduction
 ------------
