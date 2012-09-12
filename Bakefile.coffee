@@ -7,6 +7,7 @@ module.exports =
       commands: [
         'cp lifecycle.js packages/npm/lifecycle.js'
         'cp lifecycle.min.js packages/npm/lifecycle.min.js'
+        'cp README.md packages/npm/README.md'
         'cp lifecycle.js packages/nuget/Content/Scripts/lifecycle.js'
         'cp lifecycle.min.js packages/nuget/Content/Scripts/lifecycle.min.js'
       ]
