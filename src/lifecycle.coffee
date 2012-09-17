@@ -1,18 +1,16 @@
 ###
-  Lifecycle.js 1.0.1
-  (c) 2011, 2012 Kevin Malakoff.
-  Lifecycle is freely distributable under the MIT license.
-  https:#github.com/kmalakoff/Lifecycle
+  Lifecycle.js 1.0.2
+  (c) 2011, 2012 Kevin Malakoff - http://kmalakoff.github.com/json-serialize/
+  License: MIT (http://www.opensource.org/licenses/mit-license.php)
 
- Note: some code from Backbone.js is repeated in this file.
+ Note: some 'extend'-related code from Backbone.js is repeated in this file.
  Please see the following for details on Backbone.js and its licensing:
-   https:github.com/documentcloud/backbone
    https:github.com/documentcloud/backbone/blob/master/LICENSE
 ###
 
 # export or create Lifecycle namespace
 LC = @LC = if (typeof(exports) != 'undefined') then exports else {}
-LC.VERSION = "1.0.1"
+LC.VERSION = "1.0.2"
 
 ################HELPERS - BEGIN#################
 isArray = (obj) ->
@@ -23,8 +21,7 @@ copyProps = (dest, source) ->
   return dest
 
 # From Backbone.js (https:github.com/documentcloud/backbone)
-`
-// Shared empty constructor function to aid in prototype-chain creation.
+`// Shared empty constructor function to aid in prototype-chain creation.
 var ctor = function(){};
 
 // Helper function to correctly set up the prototype chain, for subclasses.

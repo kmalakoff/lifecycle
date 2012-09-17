@@ -89,7 +89,7 @@ instance.release();             // ref_count = 0 and __destroy() called
 
 # Release Notes
 
-###1.0.1
+###1.0.2
 
 - converted back to CoffeeScript
 
@@ -116,7 +116,7 @@ Building, Running and Testing the library
 
 Look at: https://github.com/kmalakoff/easy-bake
 
-[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.js
-[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.1/lifecycle.min.js
+[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.js
+[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.min.js
 [3]: https://github.com/kmalakoff/backbone-articulation
 
