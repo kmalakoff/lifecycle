@@ -1,16 +1,23 @@
 Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.
 
+#Download Latest (1.1.2):
 
-You can get the library here:
+Please see the [release notes](https://github.com/kmalakoff/lifecycle/blob/master/RELEASE_NOTES.md) for upgrade pointers.
 
-* [Development version][1]
-* [Production version][2]
+* [Development version](https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.js)
+* [Production version](https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.min.js)
+
+###Module Loading
+
+Lifecycle.js is compatible with RequireJS, CommonJS, Brunch and AMD module loading. Module names:
+
+* 'lifecycle' - lifecycle.js.
 
 Introduction
 ------------
 If you need to write code that manages the lifecycle of some javascript objects, but you don't know ahead of time what type of lifecycle model they implement, Lifecycle.js is for you!
 
-A good example of this is [Backbone.Articulation][3]. Backbone.Articulation will reconstruct instances of Dates or custom classes within you Backbone.Model's attributes irregardless of what lifecycle model they use (as long as they use one of the known conventions!)
+A good example of this is [Backbone.Articulation](https://github.com/kmalakoff/backbone-articulation). Backbone.Articulation will reconstruct instances of Dates or custom classes within you Backbone.Model's attributes irregardless of what lifecycle model they use (as long as they use one of the known conventions!)
 
 # LC.own and LC.disown
 Manages the lifecycle of individual instances, objects, arrays, and object properties that comply with some lifecycle conventions:
@@ -87,23 +94,6 @@ instance.release();             // ref_count = 1
 instance.release();             // ref_count = 0 and __destroy() called
 ```
 
-# Release Notes
-
-###1.0.2
-
-- converted back to CoffeeScript
-
-- build using easy-bake
-
-- added packaging tests
-
-- added extend() functionality for JavaScript and CoffeeScript class usability
-
-- changed convention from _destroy() to __destroy() given that some libraries (like KnockoutJS) use _destroy for other purposes
-
-- removed Lifecycle alias
-
-
 Building, Running and Testing the library
 -----------------------
 
@@ -115,8 +105,3 @@ Building, Running and Testing the library
 ###Commands:
 
 Look at: https://github.com/kmalakoff/easy-bake
-
-[1]: https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.js
-[2]: https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.min.js
-[3]: https://github.com/kmalakoff/backbone-articulation
-

@@ -16,7 +16,7 @@ clone = (obj) ->
     (result[key]=obj[key] if obj.hasOwnProperty(key)) for key of obj
     return result
 
-$(document).ready( ->
+$(->
   module("lifecycle-amd.js")
 
   # library and dependencies
@@ -210,6 +210,47 @@ $(document).ready( ->
         __destroy: ->
           @is_alive = false
       })
+
+      instance = new MyClass()
+      equal(instance.is_alive, true, 'is alive')
+
+      equal(instance.refCount(), 1, '1 reference')
+      equal(instance.retain(), instance, 'chaining')
+      equal(instance.refCount(), 2, '2 references')
+      equal(instance.retain(), instance, 'chaining')
+      equal(instance.refCount(), 3, '3 references')
+      equal(instance.is_alive, true, 'is alive')
+
+      equal(instance.release(), instance, 'chaining')
+      equal(instance.refCount(), 2, '2 references')
+      equal(instance.is_alive, true, 'is alive')
+      equal(instance.retain(), instance, 'chaining')
+      equal(instance.refCount(), 3, '3 references')
+      equal(instance.is_alive, true, 'is alive')
+
+      equal(instance.release(), instance, 'chaining')
+      equal(instance.refCount(), 2, '2 references')
+      equal(instance.release(), instance, 'chaining')
+      equal(instance.refCount(), 1, '1 reference')
+      equal(instance.is_alive, true, 'is alive')
+
+      equal(instance.release(), instance, 'chaining')
+      equal(instance.refCount(), 0, '0 references')
+      equal(instance.is_alive, false, 'is gone')
+
+      raises((->instance.release()), null, 'LC.RefCounting: ref_count is corrupt')
+      equal(instance.is_alive, false, 'is gone')
+    )
+
+    test('ref countable (coffeescript)', ->
+
+      class MyClass extends LC.RefCountable
+        constructor: ->
+          super
+          @is_alive = true
+
+        __destroy: ->
+          @is_alive = false
 
       instance = new MyClass()
       equal(instance.is_alive, true, 'is alive')

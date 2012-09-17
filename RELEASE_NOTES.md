@@ -4,3 +4,12 @@ Please refer to the following release notes when upgrading your version of Lifec
 
 * renamed _destroy to __destroy to avoid conflicts.
 * added AMD loader.
+
+## 1.0.1
+
+* converted back to CoffeeScript
+* build using easy-bake
+* added packaging tests
+* added extend() functionality for JavaScript and CoffeeScript class usability
+* changed convention from _destroy() to __destroy() given that some libraries (like KnockoutJS) use _destroy for other purposes
+* removed Lifecycle alias
