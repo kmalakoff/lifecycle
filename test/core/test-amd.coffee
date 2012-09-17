@@ -19,7 +19,7 @@ clone = (obj) ->
 $(document).ready( ->
   module("lifecycle-amd.js")
 
-  # Knockback and depdenencies
+  # library and dependencies
   require(['lifecycle'], (LC) ->
     test("TEST DEPENDENCY MISSING", ->
       ok(!!LC)
