@@ -90,11 +90,11 @@ $(->
         RetainRelease.instance_count++
       retain: ->
         @retain_count++
-        @
+        return @
       release: ->
         @retain_count--
         RetainRelease.instance_count-- if (@retain_count is 0)
-        @
+        return @
 
     RetainRelease.instance_count = 0
     original = new RetainRelease()
@@ -170,11 +170,11 @@ $(->
         return new RetainReleaseWithClone()
       retain: ->
         @retain_count++
-        @
+        return @
       release: ->
         @retain_count--
         RetainReleaseWithClone.instance_count-- if (@retain_count is 0)
-        @
+        return @
 
     RetainReleaseWithClone.instance_count = 0
     original = new RetainReleaseWithClone()

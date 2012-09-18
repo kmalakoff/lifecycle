@@ -160,12 +160,12 @@ class LC.RefCountable
   retain: ->
     throw "RefCountable: ref_count is corrupt: #{@__LC.ref_count}" if (@__LC.ref_count <= 0)
     @__LC.ref_count++
-    @
+    return @
 
   release: ->
     throw "RefCountable: ref_count is corrupt: #{@__LC.ref_count}" if (@__LC.ref_count <= 0)
     @__LC.ref_count--
     @__destroy() unless @__LC.ref_count
-    @
+    return @
 
   refCount: -> return @__LC.ref_count
