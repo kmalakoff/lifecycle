@@ -7,4 +7,4 @@ try
   # library and dependencies
   require ['lifecycle', 'qunit_test_runner'], (lc, runner) ->
     window.LC = null # force each test to require dependencies synchronously
-    runner.start(); require ['./build/test'], ->
+    require ['./build/test'], -> runner.start()
