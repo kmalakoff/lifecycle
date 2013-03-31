@@ -1,0 +1,13 @@
+{
+  "name": "lifecycle",
+  "version": "1.0.2",
+  "main": "lifecycle.js",
+  "ignore": [
+    "**/.*",
+    "components",
+    "node_modules",
+    "packages",
+    "test",
+    "vendor"
+  ]
+}
