@@ -1,17 +1,25 @@
 {
-  "author"        : {"name": "Kevin Malakoff", "url": "https://github.com/kmalakoff"},
-  "name"          : "_lifecycle",
-  "description"   : "Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.",
-  "keywords"      : ["lifecycle", "lifecyclejs", "json", "util", "server", "client"],
-  "license"       : "MIT",
-
-  "url"           : "http://kmalakoff.github.com/lifecycle/",
-  "homepage"      : "http://kmalakoff.github.com/lifecycle/",
+  "author": {
+    "name": "Kevin Malakoff",
+    "url": "https://github.com/kmalakoff"
+  },
+  "name": "_lifecycle",
+  "description": "Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.",
+  "keywords": [
+    "lifecycle",
+    "lifecyclejs",
+    "json",
+    "util",
+    "server",
+    "client"
+  ],
+  "license": "MIT",
+  "url": "http://kmalakoff.github.com/lifecycle/",
+  "homepage": "http://kmalakoff.github.com/lifecycle/",
   "repository": {
     "type": "git",
     "url": "http://github.com/kmalakoff/lifecycle.git"
   },
-
   "scripts": {
     "postinstall": "bake postinstall",
     "clean": "bake clean",
@@ -23,7 +31,6 @@
     "coffee-script": "*",
     "easy-bake": "*"
   },
-
-  "main"          : "lifecycle.js",
-  "version"       : "1.0.3"
+  "main": "lifecycle.js",
+  "version": "1.0.4"
 }

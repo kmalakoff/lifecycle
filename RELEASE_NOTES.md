@@ -1,6 +1,6 @@
 Please refer to the following release notes when upgrading your version of Lifecycle.js.
 
-## 1.0.3
+## 1.0.4
 
 * relase with MIT license in package.json: https://github.com/kmalakoff/lifecycle/pull/2
 

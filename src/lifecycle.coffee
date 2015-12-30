@@ -1,5 +1,5 @@
 ###
-  Lifecycle.js 1.0.3
+  Lifecycle.js 1.0.4
   (c) 2011, 2012 Kevin Malakoff - http://kmalakoff.github.com/json-serialize/
   License: MIT (http://www.opensource.org/licenses/mit-license.php)
 
@@ -10,7 +10,7 @@
 
 # export or create Lifecycle namespace
 LC = @LC = if (typeof(exports) != 'undefined') then exports else {}
-LC.VERSION = "1.0.3"
+LC.VERSION = "1.0.4"
 
 ################HELPERS - BEGIN#################
 isArray = (obj) ->
