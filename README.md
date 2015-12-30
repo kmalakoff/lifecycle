@@ -1,6 +1,8 @@
+[![Build Status](https://secure.travis-ci.org/kmalakoff/lifecycle.png)](http://travis-ci.org/kmalakoff/lifecycle#master)
+
 Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.
 
-#Download Latest (1.1.2):
+#Download Latest (1.0.3):
 
 Please see the [release notes](https://github.com/kmalakoff/lifecycle/blob/master/RELEASE_NOTES.md) for upgrade pointers.
 
