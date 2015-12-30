@@ -1,5 +1,9 @@
 Please refer to the following release notes when upgrading your version of Lifecycle.js.
 
+## 1.0.3
+
+* relase with MIT license in package.json: https://github.com/kmalakoff/lifecycle/pull/2
+
 ## 1.0.2
 
 * renamed _destroy to __destroy to avoid conflicts.

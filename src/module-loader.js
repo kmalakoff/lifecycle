@@ -1,5 +1,5 @@
 /*
-  Lifecycle.js 1.0.2
+  Lifecycle.js 1.0.3
   (c) 2011, 2012 Kevin Malakoff - http://kmalakoff.github.com/json-serialize/
   License: MIT (http://www.opensource.org/licenses/mit-license.php)
 

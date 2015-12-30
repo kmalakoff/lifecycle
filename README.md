@@ -4,8 +4,8 @@ Lifecycle.js provides conventions and helpers to manage the life cycles of Javas
 
 Please see the [release notes](https://github.com/kmalakoff/lifecycle/blob/master/RELEASE_NOTES.md) for upgrade pointers.
 
-* [Development version](https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.js)
-* [Production version](https://raw.github.com/kmalakoff/lifecycle/1.0.2/lifecycle.min.js)
+* [Development version](https://raw.github.com/kmalakoff/lifecycle/1.0.3/lifecycle.js)
+* [Production version](https://raw.github.com/kmalakoff/lifecycle/1.0.3/lifecycle.min.js)
 
 ###Module Loading
 
