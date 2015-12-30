@@ -1,6 +1,16 @@
 language: node_js
+
 node_js:
-  - 0.8
+  - "iojs"
+  - "node"
+  - "4.1"
+  - "0.12"
+  - "0.8"
+
+matrix:
+  allow_failures:
+  # looks broken on travis-ci itself
+  - node_js: "0.8"
 
 notifications:
   email:
