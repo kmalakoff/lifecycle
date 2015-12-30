@@ -3,6 +3,7 @@
   "name"          : "_lifecycle",
   "description"   : "Lifecycle.js provides conventions and helpers to manage the life cycles of Javascript instances.",
   "keywords"      : ["lifecycle", "lifecyclejs", "json", "util", "server", "client"],
+  "license"       : "MIT",
 
   "url"           : "http://kmalakoff.github.com/lifecycle/",
   "homepage"      : "http://kmalakoff.github.com/lifecycle/",
